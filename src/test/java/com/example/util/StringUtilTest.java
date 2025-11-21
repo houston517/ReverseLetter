@@ -5,14 +5,18 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class StringUtilTest {
+class StringUtilTest {
     @Test
-    public void emptyStringTest(){
+    void reverseLetters_nullCheck() {
+        assertEquals("", StringUtil.reverseLetters(null));
+    }
+    @Test
+    void reverseLetters_emptyString(){
         assertEquals("", StringUtil.reverseLetters(""));
     }
 
     @Test
-    public void normalStringTest(){
+    void reverseLetters_normalString(){
         assertEquals("t@eb eht av$J!123", StringUtil.reverseLetters("J@va the be$t!123"));
         assertEquals("fed, cba!", StringUtil.reverseLetters("abc, def!"));
         assertEquals("dlroW, olleH!", StringUtil.reverseLetters("Hello, World!"));
@@ -24,20 +28,20 @@ public class StringUtilTest {
     }
 
     @Test
-    public void noLettersTest(){
+    void reverseLetters_noLetters(){
         assertEquals("1234!@#", StringUtil.reverseLetters("1234!@#"));
     }
 
     @Test
-    public void onlyLettersTest(){
+    void reverseLetters_onlyLetters(){
         assertEquals("fedcba", StringUtil.reverseLetters("abcdef"));
     }
     @Test
-    public void singleLetterTest(){
+    void reverseLetters_singleLetter(){
         assertEquals("a", StringUtil.reverseLetters("a"));
     }
     @Test
-    public void russianLettersTest(){
+    void reverseLetters_russianLetters(){
         assertEquals("римтев, ирП!", StringUtil.reverseLetters("Привет, мир!"));
     }
 }
